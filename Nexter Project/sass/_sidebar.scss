@@ -1,0 +1,95 @@
+.sidebar {
+    background-color: $color-primary;
+
+    grid-column: sidebar-start/sidebar-end;
+    grid-row: 1/-1;
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width: $bp-lg){
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    z-index: 10;
+
+   
+   
+    &:hover {
+        width: 20vw;
+        justify-content: flex-end;
+
+        @media only screen and (max-width: $bp-lg){
+            height: 100vh;
+            width: 100%;
+            align-items: flex-start;
+        }
+        
+
+        .nav-btn{
+            background-color: transparent;
+            height: 2px;
+            width: 4.5rem;
+            
+            margin-right: 3rem;
+
+            @media only screen and (max-width: $bp-lg){
+               margin-top: 3rem;
+            }
+            
+
+            &::before {
+                top: 0;
+                transition: all .5s;
+                transform: rotateZ(45deg);
+            }
+
+            &::after {
+                top: 0;
+                transition: all .5s;
+                transform: rotateZ(-45deg) translateY(-.25rem) ;
+            }
+
+            
+
+        }
+
+    }
+
+   
+}
+
+.nav-btn{
+    border: none;
+    border-radius: 0;
+    margin-top: 4rem ;
+
+    background-color: white;
+    height: 2px;
+    width: 4.5rem;
+    cursor: pointer;
+   
+
+    &::before,
+    &::after {
+        background-color: white;
+        height: 2px;
+        width: 4.5rem;
+        content: "";
+        display: block;
+    }
+
+    &::before {
+        transform: translateY(-.7rem);
+    }
+    &::after {
+        transform: translateY(.6rem);
+    }
+
+    @media only screen and (max-width: $bp-lg){
+        margin-top: 0;
+        margin-right: 3rem;
+    }
+}
